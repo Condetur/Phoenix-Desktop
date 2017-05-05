@@ -23,6 +23,7 @@ public class Main extends Application {
     Scene scene;
     WebView webView;
     Console console;
+    Network network;
 
     public static void main(String[] args) { launch(args); }
 
@@ -54,12 +55,14 @@ public class Main extends Application {
         fs = new FileSystem(appData, userRoot);
         window = new BrowserWindow(stage, webView);
         console = new Console();
+        network = new Network();
 
         JSObject window = (JSObject) webEngine.executeScript("window");
         window.setMember("fs", fs);
         window.setMember("app", new AppMain());
         window.setMember("BrowserWindow", window);
         window.setMember("console", console);
+        window.setMember("network", network);
 
         main = stage;
     }
