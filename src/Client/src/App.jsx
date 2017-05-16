@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Window from './Components/Window';
 
 document.addEventListener('DOMContentLoaded', function() {
 	ReactDOM.render(
-		<div>test</div>,
+		<Window />,
 		document.getElementById('app-root')
 	)
 });

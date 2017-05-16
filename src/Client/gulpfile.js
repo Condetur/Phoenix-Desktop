@@ -12,9 +12,19 @@ gulp.task('jsx', function() {
 		}))
 		.pipe(gulp.dest('Build'));
 });
+gulp.task('js', function() {
+	return gulp.src('src/**/*.js')
+		.pipe(babel({presets: ['es2015']}))
+		.pipe(gulp.dest('.temp'))
+		.pipe(webpack({
+			output: {filename: 'App.js'}
+		}))
+		.pipe(gulp.dest('Build'));
+});
 
 gulp.task('watch', function() {
 	gulp.watch('src/**/*.jsx', ['jsx']);
-})
+	gulp.watch('src/**/*.js', ['js']);
+});
 
-gulp.task('default', ['jsx', 'watch'])
+gulp.task('default', ['jsx', 'js', 'watch'])
