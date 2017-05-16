@@ -1,1 +1,4 @@
 src/**/*.class
+src/Client/node_modules
+src/Client/Build
+src/Client/.temp
