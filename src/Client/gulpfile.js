@@ -22,6 +22,12 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('Build'));
 });
 
+gulp.task('less', function() {
+	return gulp.src('src/Styles/*.less')
+		.pipe(less())
+		.pipe(gulp.dest('Build/Styles'))
+})
+
 gulp.task('watch', function() {
 	gulp.watch('src/**/*.jsx', ['jsx']);
 	gulp.watch('src/**/*.js', ['js']);
